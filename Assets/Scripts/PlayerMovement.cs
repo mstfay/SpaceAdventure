@@ -21,11 +21,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     int limitOfJump = 3;
 
+    Joystick joystick;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        joystick = FindObjectOfType<Joystick>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void JoystickControl()
+    {
+        float movementInput = joystick.Horizontal;
+        Vector2 scale = transform.localScale;
+        if (movementInput > 0)
+        {
+            velocity.x = Mathf.MoveTowards(velocity.x, movementInput * speed, acceleration * Time.deltaTime);
+            animator.SetBool("Walk", true);
+            scale.x = 0.3f;
+        }
+        else if (movementInput < 0)
+        {
+            velocity.x = Mathf.MoveTowards(velocity.x, movementInput * speed, acceleration * Time.deltaTime);
+            animator.SetBool("Walk", true);
+            scale.x = -0.3f;
+        }
+        else
+        {
+            velocity.x = Mathf.MoveTowards(velocity.x, 0, slowDown * Time.deltaTime);
+            animator.SetBool("Walk", false);
+        }
+        // Bu atama neden yapıldı?
+        transform.localScale = scale;
+        transform.Translate(velocity * Time.deltaTime);
+    }
     void StartJump()
     {
         if (numberOfJump < limitOfJump)

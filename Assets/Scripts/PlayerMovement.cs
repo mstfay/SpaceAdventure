@@ -14,6 +14,13 @@ public class PlayerMovement : MonoBehaviour
     float acceleration;
     [SerializeField]
     float slowDown;
+    [SerializeField]
+    float jumpPower;
+    
+    int numberOfJump;
+    [SerializeField]
+    int limitOfJump = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +61,35 @@ public class PlayerMovement : MonoBehaviour
         // Bu atama neden yapıldı?
         transform.localScale = scale;
         transform.Translate(velocity * Time.deltaTime);
+
+        if (Input.GetKeyDown("space"))
+        {
+            StartJump();
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            StopJump();
+        }
     }
 
+    void StartJump()
+    {
+        if (numberOfJump < limitOfJump)
+        {
+            rb2d.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+            animator.SetBool("Jump", true);
+        }        
+    }
+    
+    void StopJump()
+    {
+        animator.SetBool("Jump", false);
+        numberOfJump++;
+    }
+    public void ResetJump()
+    {
+        numberOfJump = 0;
+        Debug.Log("Zıplama sıfırlandı.");
+    }
 }

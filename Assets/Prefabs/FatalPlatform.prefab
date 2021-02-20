@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2837234396092041396}
   - component: {fileID: 2837234396092041397}
   - component: {fileID: 2837234396092041402}
+  - component: {fileID: 583530426097399168}
   m_Layer: 0
   m_Name: FatalPlatform
   m_TagString: Untagged
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.3754127, y: 1.3326879}
   m_EdgeRadius: 0
+--- !u!114 &583530426097399168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2837234396092041403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5979b1ff75e55ab4b8862772be4ac98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

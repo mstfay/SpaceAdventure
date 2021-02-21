@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class KeepOnTheScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+  
     void Update()
     {
-        
+        if (transform.position.x < -ScreenCalculator.instance.Width)
+        {
+            Vector2 temp = transform.position;
+            temp.x = -ScreenCalculator.instance.Width;
+            transform.position = temp;
+        }
+        if (transform.position.x > ScreenCalculator.instance.Width)
+        {
+            Vector2 temp = transform.position;
+            temp.x = ScreenCalculator.instance.Width; ;
+            transform.position = temp;
+        }
     }
 }

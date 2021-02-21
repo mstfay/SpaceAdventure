@@ -140,6 +140,12 @@ public class PlayerMovement : MonoBehaviour
     public void ResetJump()
     {
         numberOfJump = 0;
-        Debug.Log("Zıplama sıfırlandı.");
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "DeathPoints")
+        {
+            FindObjectOfType<GameControl>().GameOver();
+        }
     }
 }

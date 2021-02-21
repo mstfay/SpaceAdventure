@@ -1,14 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class Score : MonoBehaviour
+
+public class GoldSensor : MonoBehaviour
 {
-    int score;
-
-    [SerializeField]
-    Text scoreText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +13,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = (int)Camera.main.transform.position.y;
-        scoreText.text = "Score: " + score;
+        
     }
 }

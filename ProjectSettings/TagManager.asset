@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Foots
+  - Platform
+  - FatalPlatform
   layers:
   - Default
   - TransparentFX
@@ -44,6 +46,9 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 1529655403
+    locked: 0
+  - name: Gold
+    uniqueID: 3789616493
     locked: 0
   - name: Player
     uniqueID: 3572061297

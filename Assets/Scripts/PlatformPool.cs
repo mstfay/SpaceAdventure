@@ -52,12 +52,17 @@ public class PlatformPool : MonoBehaviour
         platforms.Add(firstPlatform);
         NextPlatformPosition();
         firstPlatform.GetComponent<Platform>().Movement = false;
+        firstPlatform.GetComponent<Gold>().GoldOff();
 
         for (int i = 0; i < 8; i++)
         {
             GameObject platform = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
             platforms.Add(platform);
             platform.GetComponent<Platform>().Movement = true;
+            if (i % 2 == 0)
+            {
+                platform.GetComponent<Gold>().GoldOn();
+            }
             NextPlatformPosition();
         }
         GameObject fatalPlatform = Instantiate(fatalPlatformPrefab, platformPosition, Quaternion.identity);
@@ -78,6 +83,17 @@ public class PlatformPool : MonoBehaviour
             platforms[i + 5] = platforms[i];
             platforms[i] = temp;
             platforms[i + 5].transform.position = platformPosition;
+            // Yeniden konumlanan platformlardaki tag'ı platform olan oyun objelerinin 
+            // üzerinde rastgele olarak altın beliriyor.
+            if (platforms[i + 5].gameObject.tag == "Platform")
+            {
+                platforms[i + 5].GetComponent<Gold>().GoldOff();
+                float randomGold = Random.Range(0.0f, 1.0f);
+                if (randomGold > 0.5f)
+                {
+                    platforms[i + 5].GetComponent<Gold>().GoldOn();
+                }
+            }
             NextPlatformPosition();
         }
     }

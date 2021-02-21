@@ -22,9 +22,14 @@ public class PlayerMovement : MonoBehaviour
     int limitOfJump = 3;
 
     Joystick joystick;
+
+    JoystickButton joystickButton;
+
+    bool jumping;
     // Start is called before the first frame update
     void Start()
     {
+        joystickButton = FindObjectOfType<JoystickButton>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         joystick = FindObjectOfType<Joystick>();
@@ -33,7 +38,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
+
         KeyBoardControl();
+#else
+
+                JoystickControl();
+
+#endif
+       
     }
 
     /// <summary>
@@ -99,6 +112,16 @@ public class PlayerMovement : MonoBehaviour
         // Bu atama neden yapıldı?
         transform.localScale = scale;
         transform.Translate(velocity * Time.deltaTime);
+        if (joystickButton.pressedButton == true && jumping == false)
+        {
+            jumping = true;
+            StartJump();
+        }
+        if (joystickButton.pressedButton == false && jumping == true)
+        {
+            jumping = false;
+            StopJump();
+        }
     }
     void StartJump()
     {

@@ -12,7 +12,6 @@ public class MenuControl : MonoBehaviour
     [SerializeField]
     Button musicButton;
 
-    bool musicOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +19,11 @@ public class MenuControl : MonoBehaviour
         {
             Options.EasyValueAssignment(1);
         }
+        if (Options.MusicHaveISave() == false)
+        {
+            Options.MusicOnValueAssignment(1);
+        }
+        CheckTheMusicOption();
     }
 
     // Update is called once per frame
@@ -45,15 +49,27 @@ public class MenuControl : MonoBehaviour
 
     public void Music()
     {
-        if (musicOn)
+        if (Options.MusicOnValueRead() == 1)
         {
-            musicOn = false;
+            Options.MusicOnValueAssignment(0);
             musicButton.image.sprite = musicIcons[0];
         }
         else
         {
-            musicOn = true;
+            Options.MusicOnValueAssignment(1);
             musicButton.image.sprite = musicIcons[1];
+        }
+    }
+
+    void CheckTheMusicOption()
+    {
+        if (Options.MusicOnValueRead() == 1)
+        {
+            musicButton.image.sprite = musicIcons[1];
+        }
+        else
+        {
+            musicButton.image.sprite = musicIcons[0];
         }
     }
 }

@@ -1516,6 +1516,7 @@ GameObject:
   - component: {fileID: 1332661623}
   - component: {fileID: 1332661625}
   - component: {fileID: 1332661624}
+  - component: {fileID: 1332661626}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -1558,7 +1559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.17946778, g: 0.18203504, b: 0.3490566, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1582,6 +1583,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332661622}
   m_CullTransparentMesh: 0
+--- !u!95 &1332661626
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332661622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a18205a4aace334db4ecaab108f6640, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1351397538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,7 +2110,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1576392600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1591343815}
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1576392600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,6 +2371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 413527924}
   goldText: {fileID: 834348008}
+  gameOverScoreText: {fileID: 638848928}
+  GameOverGoldText: {fileID: 126728793}
 --- !u!4 &1747906638
 Transform:
   m_ObjectHideFlags: 0
@@ -2744,7 +2777,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046362229}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1591343815}
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2046362229
 MonoBehaviour:
   m_ObjectHideFlags: 0

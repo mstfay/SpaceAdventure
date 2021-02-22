@@ -18,6 +18,12 @@ public class GameControl : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +33,7 @@ public class GameControl : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        FindObjectOfType<Score>().GameOver();
         UIOff();
     }
 

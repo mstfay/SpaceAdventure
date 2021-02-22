@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2d.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
             animator.SetBool("Jump", true);
+            FindObjectOfType<SliderControl>().SliderDeger(limitOfJump, numberOfJump);
         }        
     }
     
@@ -136,11 +137,14 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("Jump", false);
         numberOfJump++;
+        FindObjectOfType<SliderControl>().SliderDeger(limitOfJump, numberOfJump);
     }
     public void ResetJump()
     {
         numberOfJump = 0;
+        FindObjectOfType<SliderControl>().SliderDeger(limitOfJump, numberOfJump);
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "DeathPoints")

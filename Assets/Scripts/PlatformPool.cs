@@ -49,9 +49,10 @@ public class PlatformPool : MonoBehaviour
 
         GameObject player = Instantiate(playerPrefab, playerPosition, Quaternion.identity);
         GameObject firstPlatform = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
+        player.transform.parent = firstPlatform.transform;
         platforms.Add(firstPlatform);
         NextPlatformPosition();
-        firstPlatform.GetComponent<Platform>().Movement = false;
+        firstPlatform.GetComponent<Platform>().Movement = true;
         firstPlatform.GetComponent<Gold>().GoldOff();
 
         for (int i = 0; i < 8; i++)

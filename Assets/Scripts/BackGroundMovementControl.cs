@@ -10,6 +10,7 @@ public class BackGroundMovementControl : MonoBehaviour
     void Start()
     {
         backGroundLocation = transform.position.y;
+        FindObjectOfType<Planets>().PlacePlanet(backGroundLocation);
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class BackGroundMovementControl : MonoBehaviour
     void BackGroundAccommodate()
     {
         backGroundLocation += (distance * 2);
+        FindObjectOfType<Planets>().PlacePlanet(backGroundLocation);
         Vector2 newPosition = new Vector2(0, backGroundLocation);
         transform.position = newPosition;
     }

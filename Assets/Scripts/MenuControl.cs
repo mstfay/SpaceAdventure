@@ -52,11 +52,13 @@ public class MenuControl : MonoBehaviour
         if (Options.MusicOnValueRead() == 1)
         {
             Options.MusicOnValueAssignment(0);
+            MusicControl.instance.PlayMusic(false);
             musicButton.image.sprite = musicIcons[0];
         }
         else
         {
             Options.MusicOnValueAssignment(1);
+            MusicControl.instance.PlayMusic(true);
             musicButton.image.sprite = musicIcons[1];
         }
     }
@@ -66,10 +68,12 @@ public class MenuControl : MonoBehaviour
         if (Options.MusicOnValueRead() == 1)
         {
             musicButton.image.sprite = musicIcons[1];
+            MusicControl.instance.PlayMusic(true);
         }
         else
         {
             musicButton.image.sprite = musicIcons[0];
+            MusicControl.instance.PlayMusic(false);
         }
     }
 }

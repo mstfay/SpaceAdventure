@@ -34,6 +34,8 @@ public class GameControl : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         FindObjectOfType<Score>().GameOver();
+        FindObjectOfType<PlayerMovement>().EndGame();
+        FindObjectOfType<CameraMovement>().EndGame();
         UIOff();
     }
 

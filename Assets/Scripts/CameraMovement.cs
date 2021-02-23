@@ -10,12 +10,12 @@ public class CameraMovement : MonoBehaviour
 
     float maxvelocity;
 
-    bool movement = true;
+    bool movement;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        movement = true;
         //velocity1 = 0.5f;
         //acceleration = 0.05f;
         //maxvelocity = 2.0f;
@@ -58,4 +58,8 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    public void EndGame()
+    {
+        movement = false;
+    }
 }

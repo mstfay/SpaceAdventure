@@ -152,4 +152,9 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<GameControl>().GameOver();
         }
     }
+
+    public void EndGame()
+    {
+        Destroy(gameObject);
+    }
 }

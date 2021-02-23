@@ -11,7 +11,7 @@ public class ScoreControl : MonoBehaviour
     void Start()
     {
         easyScore.text = "Score: " + Options.EasyScoreValueRead();
-        easyGold.text = "gold" + Options.EasyGoldValueRead();
+        easyGold.text = " X " + Options.EasyGoldValueRead();
                
         mediumScore.text = "Score: " + Options.MediumScoreValueRead();
         mediumGold.text = " X " + Options.MediumGoldValueRead();

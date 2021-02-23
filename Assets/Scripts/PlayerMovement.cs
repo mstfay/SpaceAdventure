@@ -127,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (numberOfJump < limitOfJump)
         {
+            FindObjectOfType<SoundControl>().JumpSound();
             rb2d.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
             animator.SetBool("Jump", true);
             FindObjectOfType<SliderControl>().SliderDeger(limitOfJump, numberOfJump);

@@ -101,6 +101,12 @@ public class PlatformPool : MonoBehaviour
     void NextPlatformPosition()
     {
         platformPosition.y += distanceBetweenPlatforms;
+        LinePlatform();
+        
+    }
+
+    void RandomPlatform()
+    {
         float random = Random.Range(0.0f, 1.0f);
         if (random < 0.5f)
         {
@@ -109,6 +115,22 @@ public class PlatformPool : MonoBehaviour
         else
         {
             platformPosition.x = -ScreenCalculator.instance.Width / 2;
+        }
+    }
+
+    bool yon = true;
+    void LinePlatform()
+    {
+        float random = Random.Range(0.0f, 1.0f);
+        if (yon)
+        {
+            platformPosition.x = ScreenCalculator.instance.Width / 2;
+            yon = false;
+        }
+        else
+        {
+            platformPosition.x = -ScreenCalculator.instance.Width / 2;
+            yon = true;
         }
     }
 }

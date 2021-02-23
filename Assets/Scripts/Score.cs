@@ -42,6 +42,7 @@ public class Score : MonoBehaviour
 
     public void CollectGold()
     {
+        FindObjectOfType<SoundControl>().GoldSound();
         gold++;
         goldText.text = " X " + gold;
     }

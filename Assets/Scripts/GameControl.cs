@@ -32,6 +32,7 @@ public class GameControl : MonoBehaviour
     }
     public void GameOver()
     {
+        FindObjectOfType<SoundControl>().GameOverSound();
         gameOverPanel.SetActive(true);
         FindObjectOfType<Score>().GameOver();
         FindObjectOfType<PlayerMovement>().EndGame();
